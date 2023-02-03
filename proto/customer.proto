@@ -1,0 +1,90 @@
+syntax="proto3";
+option go_package="./;pb";
+package booking_asm;
+
+service CustomerService {
+    rpc CreateCustomer(CreateCustomerRequest)returns(CreateCustomerResponse);
+    rpc UpdateCustomer(UpdateCustomerRequest)returns(UpdateCustomerResponse);
+    rpc FindCustomer(FindCustomerRequest)returns(FindCustomerResponse);
+    rpc ChangePassword(ChangePasswordRequest)returns(ChangePasswordResponse);
+}
+
+message Customer{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+message CreateCustomerRequest{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+message CreateCustomerResponse{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+
+message UpdateCustomerRequest{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+
+message UpdateCustomerResponse{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+message FindCustomerRequest{
+    string id=1;
+}
+message FindCustomerResponse{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}
+message ChangePasswordRequest{
+    string id=1;
+    string password=2;
+}
+message ChangePasswordResponse{
+    string customer_name = 1;
+	string address = 2;
+	string phone = 3; 
+	string license_id = 4;
+	bool active = 5;
+	string id = 6;
+    string email = 7;
+    string password = 8;
+}

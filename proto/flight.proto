@@ -1,0 +1,70 @@
+syntax="proto3";
+option go_package="./;pb";
+package booking_asm;
+import "google/protobuf/timestamp.proto";
+
+service FlightService{
+    rpc CreateFlight(CreateFlightRequest)returns(CreateFlightResponse);
+    rpc UpdateFlight(UpdateFlightRequest)returns(UpdateFlightResponse);
+    rpc SearchFlight(SearchFlightRequest)returns(SearchFlightResponse);
+}
+message CreateFlightRequest{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    google.protobuf.Timestamp date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}
+message Flight{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    string date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}
+
+message CreateFlightResponse{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    string date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}
+
+message UpdateFlightRequest{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    google.protobuf.Timestamp date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}
+
+message UpdateFlightResponse{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    string date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}
+message SearchFlightRequest{
+    string id=1;
+}
+message SearchFlightResponse{
+    string id = 1;
+    string name = 2;
+    string from = 3;
+    string to = 4;
+    string date = 5;
+    string status = 6;
+    int32 available_slot = 7;
+}

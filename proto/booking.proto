@@ -1,0 +1,61 @@
+syntax="proto3";
+option go_package="./;pb";
+package booking_asm;
+
+import "customer.proto";
+import "flight.proto";
+import "google/protobuf/timestamp.proto";
+
+service BookingService{
+    rpc CreateBooking(CreateBookingRequest)returns(CreateBookingResponse);
+    rpc CancelBooking (CancelBookingRequest) returns (BookingRespnose);
+    rpc SearchBooking(SearchBookingRequest) returns (BookingInfor);
+    rpc SearchBookingId(SearchBookingByIdRequest) returns (ListBooking);
+}
+message CreateBookingRequest{
+    string id = 1;
+    string customer_id = 2;
+    string flight_id = 3;
+    string code = 4;
+    string status = 5;
+    google.protobuf.Timestamp booked_date = 6;
+}
+
+message CreateBookingResponse{
+    string id = 1;
+    string customer_id = 2;
+    string flight_id = 3;
+    string code = 4;
+    string status = 5;
+    string booked_date = 6;
+}
+message BookingRespnose{
+    string id = 1;
+    string customer_id = 2;
+    string flight_id = 3;
+    string code = 4;
+    string status = 5;
+    string booked_date = 6;
+}
+message CancelBookingRequest{
+    string code = 1;
+    string status = 2;
+}
+
+message SearchBookingRequest{
+    string code = 1;
+}
+
+message SearchBookingByIdRequest{
+    string id = 1;
+}
+
+message ListBooking{
+    repeated BookingRespnose booking_list = 1;
+}
+
+message BookingInfor{
+    BookingRespnose booking_detail = 1;
+    Flight flight_detail = 2;
+    Customer customer_detail = 3;
+}
